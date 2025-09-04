@@ -723,5 +723,21 @@
     "name": "You Are Jeff Bezos",
     "dir": "/assets/g/you-are-bezos/",
     "icon": "/assets/g/you-are-bezos/img/banner.png"
+  },
+  {
+    "name": "Gun Mayhem",
+    "dir": "/assets/g/gunmayhem/",
+    "icon": "/assets/g/gunmayhem/icon.png"
+  },
+
+  {
+    "name": "Gun Mayhem 2",
+    "dir": "/assets/g/gunmayhem2/",
+    "icon": "/assets/g/gunmayhem2/icon2.jpg"
+  },
+  {
+    "name": "Gun Mayhem Redux",
+    "dir": "/assets/g/gunmayhemredux/",
+    "icon": "/assets/g/gunmayhemredux/redux.jpeg"
   }
 ]
