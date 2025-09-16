@@ -1,10 +1,10 @@
 const phrases = [
       "Over 100 unblocked games!",
-      "Now better than ever!",
+      "W Obsidian ❤️‍🩹",
       "Join the discord community!",
-      "Follow our tiktok @obsidianubg!",
+      "Verion 2.0 released!",
       "New games added weekly.",
-      "Dexterity, Skill, Fun.",
+      "Тотя. ❤️",
     ];
 
     const textElement = document.getElementById("random-text");

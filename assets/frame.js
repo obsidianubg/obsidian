@@ -1,7 +1,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const iframe = document.getElementById("myIframe");
-    iframe.src = params.get("url") || "https://example.com";
+    iframe.src = params.get("url") || "/404.html";
 
     function refreshIframe() {
       iframe.src = iframe.src;

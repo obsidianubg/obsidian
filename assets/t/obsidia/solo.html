@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>Obsidia</title>
+<style>
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  font-family: "ObsidianFont", monospace;
+}
+
+@font-face {
+  font-family: 'ObsidianFont';
+  src: local('Courier New');
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+main {
+  display: flex;
+  width: 90vw;
+  height: 80vh;
+  gap: 10px;
+}
+
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  border: 2px solid #222;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: "ObsidianFont", monospace;
+  font-size: 14px;
+  resize: none;
+  overflow: auto;
+}
+
+textarea:focus {
+  border-color: #555;
+  outline: none;
+}
+
+#controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-family: "ObsidianFont", monospace;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+iframe {
+  flex: 1;
+  border-radius: 8px;
+  border: 2px solid #222;
+  background: #fff;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+textarea::-webkit-scrollbar, iframe::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea::-webkit-scrollbar-track, iframe::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb, iframe::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+  border: 3px solid #1a1a1a;
+}
+
+textarea::-webkit-scrollbar-thumb:hover, iframe::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1a1a1a;
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="build/OBA.png" alt="Logo">
+  <span>⚡ Obsidian Editor</span>
+</header>
+
+<main>
+  <div class="editor">
+    <textarea id="html" placeholder="HTML"></textarea>
+    <textarea id="css" placeholder="CSS"></textarea>
+    <textarea id="js" placeholder="JavaScript"></textarea>
+    <div id="controls">
+      <button onclick="runCode()">▶ Run</button>
+      <button onclick="exportCode()">💾 Export</button>
+      <label for="importFile"><button>📂 Import</button></label>
+      <input type="file" id="importFile" accept=".html,.txt" onchange="importCode(event)">
+    </div>
+  </div>
+  <iframe id="output"></iframe>
+</main>
+
+<script>
+function runCode() {
+  const html = document.getElementById('html').value;
+  const css = "<style>" + document.getElementById('css').value + "</style>";
+  const js = "<script>" + document.getElementById('js').value + "<\/script>";
+  const code = html + css + js;
+  const output = document.getElementById('output').contentWindow.document;
+  output.open();
+  output.write(code);
+  output.close();
+}
+
+function exportCode() {
+  const html = document.getElementById('html').value;
+  const css = "<style>" + document.getElementById('css').value + "</style>";
+  const js = "<script>" + document.getElementById('js').value + "<\/script>";
+  const code = html + css + js;
+  const blob = new Blob([code], { type: "text/html" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "myCode.html";
+  link.click();
+}
+
+function importCode(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result;
+    const htmlMatch = text.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const cssMatch = text.match(/<style[^>]*>([\s\S]*)<\/style>/i);
+    const jsMatch = text.match(/<script[^>]*>([\s\S]*)<\/script>/i);
+    document.getElementById('html').value = htmlMatch ? htmlMatch[1].trim() : text;
+    document.getElementById('css').value = cssMatch ? cssMatch[1].trim() : "";
+    document.getElementById('js').value = jsMatch ? jsMatch[1].trim() : "";
+  };
+  reader.readAsText(file);
+}
+</script>
+</body>
+</html>

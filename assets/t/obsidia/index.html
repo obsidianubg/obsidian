@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Obsidia</title>
+<link rel="stylesheet" href="build/min.css">
+</head>
+<body>
+<header>
+  <img src="build/OBA.png" alt="Logo">
+  <span>Obsidia</span>
+</header>
+
+<main>
+  <div class="editor">
+    <textarea id="html" placeholder="HTML"></textarea>
+    <textarea id="css" placeholder="CSS"></textarea>
+    <textarea id="js" placeholder="JavaScript"></textarea>
+    <div id="controls">
+      <button onclick="runCode()">▶ Run</button>
+      <button onclick="exportCode()">💾 Export</button>
+      <label for="importFile"><button>📂 Import</button></label>
+      <input type="file" id="importFile" accept=".html,.txt" onchange="importCode(event)">
+    </div>
+  </div>
+  <iframe id="output"></iframe>
+</main>
+
+<script src="build/build.js"></script>
+</body>
+</html>

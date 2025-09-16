@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFDK6PS2S2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LFDK6PS2S2');
+    </script>
+    <title>Obsidian | Calc</title>
+    <link rel="stylesheet" type="text/css" href="/assets/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="/assets/icons/obsidianv2.ico">
+    </head>
+    <body>
+
+        <div class="sidebar">
+    <div class="logo">
+      <img src="/assets/obsidianv2.webp" alt="Logo">
+    </div>
+    <div class="nav-links">
+      <a href="/"><i class="fas fa-home"></i></a>
+      <a href="/math.html"><i class="fas fa-gamepad"></i></a>
+      <a href="/science.html"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    </div>
+    <div class="divider"></div>
+    <div class="bottom">
+      <a href="/calc.html"><i class="fas fa-cog"></i></a>
+      <a href="https://discord.gg/5R3MYwdyVV"><i class="fa-brands fa-discord"></i></a>
+    </div>
+    <br>
+  </div>
+
+        <div class="container">
+    <div class="scroll-box">
+            <br>
+            <h2 style="margin: 0;">Tab Cloaking</h2>
+            <p style="margin-bottom: 0;">Allows you to change favicon and title to something school related</p>
+            <br>
+            <select class="btn" id="presetSelect">
+                <option value="google">google</option>
+                <option value="googleclassroom">google classroom</option>
+                <option value="googledrive">google drive</option>
+                <option value="chrometab">chrome new tab</option>
+                <option value="gmail">gmail</option>
+                <option value="bing">bing</option>
+                <option value="desmos">desmos calculator</option>
+                <option value="wikipedia">wikipedia</option>
+            </select>
+        
+            <button class="btn" id="saveButton">select cloak</button>
+            <button class="btn" id="resetButton">reset cloak</button>
+            <p id="success" style="display: none;">success message here</p>
+            
+            <br>
+            <br>
+            <h2 style="margin-bottom: 20px;">Panic Keys</h2>
+            <p style="margin-bottom: 0;">Allows you to set a key as an escape to go to a different website if someone is near by</p>
+            <input class="btn" type="text" id="panicKey" placeholder="choose a key combination" readonly>
+            <input class="btn" type="url" id="panicUrl" placeholder="https://www.desmos.com/scientific">
+            <button class="btn" onclick="saveSettings()">set panic key</button>
+            <p id="success-panic" style="display: none;">success message here</p>
+    </div>
+  </div>
+        <script src="/assets/settings/cloak.js"></script>
+        <script src="/assets/settings/data.js"></script>
+        <script src="/assets/settings/settings.js"></script>
+    <script type='text/javascript' src='//pl27578305.revenuecpmgate.com/35/8c/5a/358c5ad9196dfc46f09aaf9cdfe91171.js'></script>
+    </body>
+</html>

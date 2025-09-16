@@ -1,0 +1,120 @@
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  font-family: "ObsidianFont", monospace;
+}
+
+@font-face {
+  font-family: 'ObsidianFont';
+  src: local('Courier New');
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+main {
+  display: flex;
+  width: 90vw;
+  height: 80vh;
+  gap: 10px;
+}
+
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  border: 2px solid #222;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: "ObsidianFont", monospace;
+  font-size: 14px;
+  resize: none;
+  overflow: auto;
+}
+
+textarea:focus {
+  border-color: #555;
+  outline: none;
+}
+
+#controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-family: "ObsidianFont", monospace;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+iframe {
+  flex: 1;
+  border-radius: 8px;
+  border: 2px solid #222;
+  background: #fff;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+textarea::-webkit-scrollbar, iframe::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea::-webkit-scrollbar-track, iframe::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb, iframe::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+  border: 3px solid #1a1a1a;
+}
+
+textarea::-webkit-scrollbar-thumb:hover, iframe::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1a1a1a;
+}

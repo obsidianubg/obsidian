@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 body {
   background-color: #0d0d0d;
   color: #fff;
   text-align: center;
-  font-family: "Figtree", sans-serif;
+  font-family: "Lexend", sans-serif;
 }
 
 h1 {
   font-size: 48px;
   margin-top: 80px;
   margin-bottom: 20px;
+  font-family: "Lexend", sans-serif;
 }
 
 p {
@@ -18,36 +18,84 @@ p {
   margin-bottom: 40px;
   opacity: 0.5;
   cursor: pointer;
+  font-family: "Lexend", sans-serif;
 }
 
-nav {
-  background-color: #1a1a1a;
-  padding: 10px 10px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  position: fixed;
-  font-size: 26px;
-  z-index: 99999;
-}
+.sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 100vh;
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      border-right: 2px solid #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+      box-shadow: 4px 0 15px rgba(0, 0, 0, 0.8);
+    }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  float: left;
-  transition: opacity 0.2s;
-}
+    .sidebar .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .sidebar .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sidebar .logo:hover {
+      transform: scale(1.1);
+    }
 
-nav a:hover {
-  opacity: 0.7;
-}
+    .divider {
+      width: 50%;
+      height: 2px;
+      background: #444;
+      margin: 20px 0;
+      border-radius: 1px;
+    }
 
-#nav-time {
-  float: right;
-  color: #fff;
-  margin-right: 15px;
-}
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .nav-links a {
+      color: #bbb;
+      font-size: 22px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    .sidebar .bottom {
+      margin-top: auto;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+    .sidebar .bottom a {
+      color: #bbb;
+      font-size: 22px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .sidebar .bottom a:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
 
 .game-grid {
   display: flex;
@@ -79,9 +127,11 @@ nav a:hover {
 
 iframe {
   width: 80vw;
-  height: 67vh;
+  height: 80vh;
   border: none;
   display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 #controls {
@@ -92,6 +142,9 @@ iframe {
   gap: 10px;
   width: 79vw;
   margin: 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 button {
@@ -139,9 +192,92 @@ button:hover {
   text-align: center;
 }
 
+.container {
+      margin: 0;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-y: hidden;
+    }
+
+    .scroll-box {
+      width: 40vw;
+      height: 40vh;
+      background: #111111;
+      border: 2px solid #222;
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      overflow-y: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 5px 0;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: "Lexend", sans-serif;
+    }
+
+    .btn:hover {
+      scale: 1.05;
+      background: #333333;
+    }
+
+    .tools img {
+      height: 200px;
+      width: 200px;;
+      border-radius: 8px;
+      margin-left: 10px;
+      transition: 0.2s ease-in-out;
+    }
+
+    .tools img:hover {
+      transform: scale(1.05);
+    }
+
 .gradient-text {
   background: linear-gradient(to right, white, #010012, white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
+::selection {
+        background: #010012;
+        color: #fff;
+        border-radius: 80px;
+    }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Track color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+  border: 3px solid #1a1a1a; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
+/* Works in Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1a1a1a;
+}
+
