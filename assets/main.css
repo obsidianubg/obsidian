@@ -245,7 +245,7 @@ button:hover {
   width: 200px;
   border-radius: 8px;
   margin-left: 10px;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s;
 }
 
 .tools img:hover {
