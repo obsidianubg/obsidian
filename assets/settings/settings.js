@@ -398,3 +398,9 @@ document.getElementById('import-theme').addEventListener('click', function() {
 
     input.click();
 });
+
+function setVh() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+  }
+  setVh();
+  window.addEventListener('resize', setVh);
